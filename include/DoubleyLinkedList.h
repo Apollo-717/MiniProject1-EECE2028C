@@ -43,6 +43,9 @@ class DoubleyLinkedList {
 
     private:
     int size;
+    Student** head;
+    Student** tail;
+
 
 
 };
