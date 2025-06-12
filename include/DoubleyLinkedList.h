@@ -5,6 +5,7 @@
 #ifndef DOUBLEYLINKEDLIST_H
 #define DOUBLEYLINKEDLIST_H
 #include "Student.h"
+#include "Node.h"
 
 
 class DoubleyLinkedList {
@@ -13,7 +14,7 @@ class DoubleyLinkedList {
     DoubleyLinkedList();
 
     //Method to add an item
-    void AddItem(int index=-1, Student* student);
+    void AddItem(Student* student);
 
     //Method to get an item and remove it from the list
     Student* GetItem(int MNumber);
@@ -43,8 +44,8 @@ class DoubleyLinkedList {
 
     private:
     int size;
-    Student** head;
-    Student** tail;
+    Node* head;
+    Node* tail;
 
 
 
