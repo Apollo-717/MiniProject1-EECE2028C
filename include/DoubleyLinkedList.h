@@ -27,7 +27,7 @@ class DoubleyLinkedList {
     bool IsEmpty() const;
 
     //method to get size
-    int Size();
+    int Size() const;
 
     //method to track and see next item in list
     Student* SeeNext();

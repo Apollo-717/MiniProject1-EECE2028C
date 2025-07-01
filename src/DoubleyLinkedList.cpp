@@ -73,6 +73,11 @@ bool DoubleyLinkedList::IsEmpty() const {
     return false;
 }
 
+int DoubleyLinkedList::Size() const {
+    return size;
+}
+
+
 
 
 
