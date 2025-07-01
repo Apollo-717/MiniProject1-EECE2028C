@@ -21,10 +21,10 @@ class DoubleyLinkedList {
     Student* GetItem(const std::string& MNumber);
 
     //Method to check if item is in list
-    bool IsInList(const std::string& MNumber);
+    bool IsInList(const std::string& MNumber) const;
 
     //Method to check if list is empty
-    bool IsEmpty();
+    bool IsEmpty() const;
 
     //method to get size
     int Size();

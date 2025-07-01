@@ -55,7 +55,7 @@ Student* DoubleyLinkedList::GetItem(const std::string& MNumber) {
     return nullptr;
 }
 
-bool DoubleyLinkedList::IsInList(const std::string& MNumber) {
+bool DoubleyLinkedList::IsInList(const std::string& MNumber) const {
     Node* current = head;
     while (current != nullptr) {
         if (*current->data == MNumber) {
@@ -65,6 +65,14 @@ bool DoubleyLinkedList::IsInList(const std::string& MNumber) {
     }
     return false;
 }
+
+bool DoubleyLinkedList::IsEmpty() const {
+    if (size == 0) {
+        return true;
+    }
+    return false;
+}
+
 
 
 
