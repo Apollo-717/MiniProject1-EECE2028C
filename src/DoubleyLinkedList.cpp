@@ -15,6 +15,7 @@ void DoubleyLinkedList::AddItem(Student* student) {
     Node* newNode = new Node(student);
     if (head == nullptr) {
         head = newNode;
+        tail = newNode;
     }
     else {
         tail->next = newNode;
@@ -31,4 +32,5 @@ Student* DoubleyLinkedList::GetItem(int MNumber) {
     while (counter < size) {
 
     }
+
 }
