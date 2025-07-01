@@ -14,9 +14,10 @@ DoubleyLinkedList::DoubleyLinkedList() {
 
 void DoubleyLinkedList::AddItem(Student* student) {
     Node* newNode = new Node(student);
-    if (head == nullptr) {
+    if (size == 0) {
         head = newNode;
         tail = newNode;
+        current_location = newNode;
     }
     else {
         tail->next = newNode;
@@ -76,6 +77,17 @@ bool DoubleyLinkedList::IsEmpty() const {
 
 int DoubleyLinkedList::Size() const {
     return size;
+}
+
+Student* DoubleyLinkedList::SeeNext() {
+    if (size == 0) {
+        throw std::out_of_range("List is empty. Cannot see next item");
+    }
+    if (current_location == nullptr) {
+        return nullptr;
+    }
+    current_location = current_location->next;
+    return current_location->data;
 }
 
 
