@@ -6,6 +6,7 @@
 #define DOUBLEYLINKEDLIST_H
 #include "Student.h"
 #include "Node.h"
+#include <iostream>
 
 
 class DoubleyLinkedList {
@@ -20,7 +21,7 @@ class DoubleyLinkedList {
     Student* GetItem(const std::string& MNumber);
 
     //Method to check if item is in list
-    bool IsInList(int MNumber);
+    bool IsInList(const std::string& MNumber);
 
     //Method to check if list is empty
     bool IsEmpty();

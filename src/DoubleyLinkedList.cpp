@@ -2,8 +2,8 @@
 // Created by Apollo on 6/10/25.
 //
 
-#include <iostream>
 #include "../include/DoubleyLinkedList.h"
+
 
 DoubleyLinkedList::DoubleyLinkedList() {
     head = nullptr;
@@ -28,12 +28,9 @@ void DoubleyLinkedList::AddItem(Student* student) {
 
 Student* DoubleyLinkedList::GetItem(const std::string& MNumber) {
     Node* current = head;
-    while (true) {
-        if (current == nullptr) {
-            return nullptr;
-        }
+    while (current != nullptr) {
 
-        if (current->data == MNumber) {
+        if (*current->data == MNumber) {
             Student* found_student = current -> data;
             if (current->prev != nullptr) {
                 current->prev->next = current->next;
@@ -55,4 +52,19 @@ Student* DoubleyLinkedList::GetItem(const std::string& MNumber) {
 
         current = current->next;
     }
+    return nullptr;
 }
+
+bool DoubleyLinkedList::IsInList(const std::string& MNumber) {
+    Node* current = head;
+    while (current != nullptr) {
+        if (*current->data == MNumber) {
+            return true;
+        }
+        current = current->next;
+    }
+    return false;
+}
+
+
+
