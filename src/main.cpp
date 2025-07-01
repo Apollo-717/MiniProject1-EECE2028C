@@ -1,7 +1,16 @@
+#include "../include/Student.h"
+#include <string>
 #include <iostream>
 
 int main() {
-    //TODO
-    std::cout >> "hello"
+    std::cout << "Which function would you like to test?" << std::endl;
+    std::cout << "Which function would you like to test?" << std::endl;
+    std::cout << "Which function would you like to test?" << std::endl;
     return 0;
 }
+
+
+
+
+
+
