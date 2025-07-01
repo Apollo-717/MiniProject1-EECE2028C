@@ -7,6 +7,7 @@
 
 DoubleyLinkedList::DoubleyLinkedList() {
     head = nullptr;
+    current_location = nullptr;
     tail = nullptr;
     size = 0;
 }

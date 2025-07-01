@@ -21,13 +21,13 @@ class DoubleyLinkedList {
     Student* GetItem(const std::string& MNumber);
 
     //Method to check if item is in list
-    bool IsInList(const std::string& MNumber) const;
+    [[nodiscard]] bool IsInList(const std::string& MNumber) const;
 
     //Method to check if list is empty
-    bool IsEmpty() const;
+    [[nodiscard]] bool IsEmpty() const;
 
     //method to get size
-    int Size() const;
+    [[nodiscard]] int Size() const;
 
     //method to track and see next item in list
     Student* SeeNext();
@@ -45,6 +45,7 @@ class DoubleyLinkedList {
 
     private:
     int size;
+    Node* current_location;
     Node* head;
     Node* tail;
 
