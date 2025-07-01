@@ -90,7 +90,7 @@ Student* DoubleyLinkedList::SeeNext() {
     return current_location->data;
 }
 
-Student* DoubleyLinkedList::SeeAt(int index) {
+Student* DoubleyLinkedList::SeeAt(const int index) {
     if (index < 0 || index >= size) {
         throw std::out_of_range("index is out of range");
     }
@@ -100,5 +100,15 @@ Student* DoubleyLinkedList::SeeAt(int index) {
     return current_location->data;
 }
 
+void DoubleyLinkedList::Reset() {
+    current_location = head;
+}
 
-
+DoubleyLinkedList::~DoubleyLinkedList() {
+    Node* current = head;
+    for (int i = 0; i < size; i++) {
+        delete current->data;
+        current = current->next;
+        delete current->prev;
+    }
+}
