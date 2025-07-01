@@ -17,7 +17,7 @@ class DoubleyLinkedList {
     void AddItem(Student* student);
 
     //Method to get an item and remove it from the list
-    Student* GetItem(int MNumber);
+    Student* GetItem(const std::string& MNumber);
 
     //Method to check if item is in list
     bool IsInList(int MNumber);

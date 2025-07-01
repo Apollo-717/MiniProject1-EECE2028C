@@ -26,11 +26,33 @@ void DoubleyLinkedList::AddItem(Student* student) {
     size++;
 }
 
-Student* DoubleyLinkedList::GetItem(int MNumber) {
-    int counter = 0;
+Student* DoubleyLinkedList::GetItem(const std::string& MNumber) {
     Node* current = head;
-    while (counter < size) {
+    while (true) {
+        if (current == nullptr) {
+            return nullptr;
+        }
 
+        if (current->data == MNumber) {
+            Student* found_student = current -> data;
+            if (current->prev != nullptr) {
+                current->prev->next = current->next;
+            }
+            else {
+                head = current->next;
+            }
+
+            if (current->next != nullptr) {
+                current->next->prev = current->prev;
+            }
+            else {
+                tail = current->prev;
+            }
+            delete current;
+            size--;
+            return found_student;
+        }
+
+        current = current->next;
     }
-
 }
