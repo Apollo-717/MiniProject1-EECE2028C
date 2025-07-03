@@ -46,7 +46,7 @@ void AddItem(DoubleyLinkedList *myList) {
     int birthYear;
     int birthMonth;
     int dayOfBirth;
-    double GPA;
+    double GPA=0;
 
     std::cout << "Please enter the students first name: ";
     std::cin >> FirstName;
@@ -54,8 +54,14 @@ void AddItem(DoubleyLinkedList *myList) {
     std::cin >> LastName;
     std::cout << "Please enter the students M-Number: ";
     std::cin >> Mnumber;
-    std::cout << "Please enter the students GPA: ";
-    std::cin >> GPA;
+    std::cout << "Please enter the students GPA (press Enter for 0): ";
+
+    std::cin.ignore();
+    if (std::cin.peek() != '\n') {
+        std::cin >> GPA;
+    }
+    std::cin.ignore();
+
     std::cout << "Please enter the students birth year: ";
     std::cin >> birthYear;;
     std::cout << "Please enter the students birth month: ";
@@ -81,7 +87,71 @@ void GetItem(DoubleyLinkedList *myList) {
 
 }
 
+void IsInList(DoubleyLinkedList *myList) {
+    std::cout << "Please enter the students Mnumber: " << std::endl;
+    std::string Mnumber;
+    std::cin >> Mnumber;
+    if (myList -> IsInList(Mnumber)) {
+        std::cout << "Student is in List" << std::endl;
+    }
+    else {
+        std::cout << "Student is not in List" << std::endl;
+    }
 
+}
+
+void IsEmpty(DoubleyLinkedList *myList) {
+    bool isEmpty = myList -> IsEmpty();
+    if (isEmpty) {
+        std::cout << "List is empty" << std::endl;
+    }
+    else {
+        std::cout << "List is not empty" << std::endl;
+    }
+}
+
+void Size(DoubleyLinkedList *myList) {
+    std::cout << "The size of the list is: " << myList -> Size() << std::endl;
+}
+
+void SeeNext(DoubleyLinkedList *myList) {
+    try {
+        Student* result = myList -> SeeNext();
+        if (result == nullptr) {
+            std::cout << "Reached end of list" << std::endl;
+        }
+        else {
+            PrintStudent(*result);
+        }
+    } catch (std::out_of_range& e) {
+        std::cout << "List is empty cannot see next" << std::endl;
+    }
+}
+
+void SeeAt(DoubleyLinkedList *myList) {
+    try {
+        int index;
+        std::cout << "Please enter the index of the student: " << std::endl;
+        std::cin >> index;
+        Student* result = myList -> SeeAt(index);
+            PrintStudent(*result);
+
+    } catch (std::out_of_range& e) {
+        std::cout << "Index is out of range" << std::endl;
+    }
+
+}
+
+void Reset(DoubleyLinkedList *myList) {
+    myList -> Reset();
+    std::cout << "current location reset to index 0" << std::endl;
+}
+
+
+void Exit(DoubleyLinkedList *myList) {
+    delete myList;
+    std::cout << "Goodbye" << std::endl;
+}
 
 
 
@@ -95,23 +165,39 @@ void GetItem(DoubleyLinkedList *myList) {
 
 
 int main() {
-    std::cout << "Which function would you like to test?" << std::endl;
-    std::cout << "1: Add Item" << std::endl;
-    std::cout << "2: Get Item" << std::endl;
-    std::cout << "3: Is in List" << std::endl;
-    std::cout << "4: Is Empty" << std::endl;
-    std::cout << "5: Size" << std::endl;
-    std::cout << "6: See Next" << std::endl;
-    std::cout << "7: See At" << std::endl;
-    std::cout << "8: Exit" << std::endl;
-    int option;
-    //std::cin >> option;
+    bool running = true;
     DoubleyLinkedList *MyList = new DoubleyLinkedList();
-    Student *ExampleStu = new Student("Fill", "McCrack", "M123456789", 1969, 4, 20);
-    AddItem(MyList);
-    GetItem(MyList);
-    //PrintStudent(*ExampleStu);
-    //switch(option) {}
+    while (running){
+        std::cout << "Which function would you like to test?" << std::endl;
+        std::cout << "1: Add Item" << std::endl;
+        std::cout << "2: Get Item" << std::endl;
+        std::cout << "3: Is in List" << std::endl;
+        std::cout << "4: Is Empty" << std::endl;
+        std::cout << "5: Size" << std::endl;
+        std::cout << "6: See Next" << std::endl;
+        std::cout << "7: See At" << std::endl;
+        std::cout << "8: Exit" << std::endl;
+
+    int option;
+    std::cin >> option;
+
+    switch(option) {
+        case 1: AddItem(MyList); break;
+        case 2: GetItem(MyList); break;
+        case 3: IsInList(MyList); break;
+        case 4: IsEmpty(MyList); break;
+        case 5: Size(MyList); break;
+        case 6: SeeNext(MyList); break;
+        case 7: SeeAt(MyList); break;
+        case 8: {
+                Exit(MyList);
+                running = false;
+                break;
+            }
+        default: {
+                std::cout << "Invalid option" << std::endl;
+            }
+    }}
     return 0;
 }
 
