@@ -83,7 +83,7 @@ Student* DoubleyLinkedList::SeeNext() {
     if (size == 0) {
         throw std::out_of_range("List is empty. Cannot see next item");
     }
-    if (current_location == nullptr) {
+    if (current_location->next == nullptr) {
         return nullptr;
     }
     current_location = current_location->next;
@@ -108,7 +108,11 @@ DoubleyLinkedList::~DoubleyLinkedList() {
     Node* current = head;
     for (int i = 0; i < size; i++) {
         delete current->data;
-        current = current->next;
-        delete current->prev;
+        if (current->next != nullptr) {
+            current = current->next;
+            delete current->prev;
+        }
+
     }
+    delete current;
 }

@@ -167,6 +167,12 @@ void Exit(DoubleyLinkedList *myList) {
 int main() {
     bool running = true;
     DoubleyLinkedList *MyList = new DoubleyLinkedList();
+    Student* A = new Student("A","A","M1",1,1,1);
+    Student* B = new Student("B","B","M2",2,2,2);
+    Student* C = new Student("C","C","M3",3,3,3);
+    MyList -> AddItem(A);
+    MyList -> AddItem(B);
+    MyList -> AddItem(C);
     while (running){
         std::cout << "Which function would you like to test?" << std::endl;
         std::cout << "1: Add Item" << std::endl;
@@ -176,7 +182,8 @@ int main() {
         std::cout << "5: Size" << std::endl;
         std::cout << "6: See Next" << std::endl;
         std::cout << "7: See At" << std::endl;
-        std::cout << "8: Exit" << std::endl;
+        std::cout << "8: Reset" << std::endl;
+        std::cout << "9: Exit" << std::endl;
 
     int option;
     std::cin >> option;
@@ -189,7 +196,8 @@ int main() {
         case 5: Size(MyList); break;
         case 6: SeeNext(MyList); break;
         case 7: SeeAt(MyList); break;
-        case 8: {
+        case 8: Reset(MyList); break;
+        case 9: {
                 Exit(MyList);
                 running = false;
                 break;
