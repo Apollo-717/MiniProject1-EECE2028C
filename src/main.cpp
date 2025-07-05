@@ -5,6 +5,7 @@
 #include <format>
 #include <cmath>
 #include <vector>
+
 void PrintLine(char ch, int length) {
     std::cout << "+";  // left border
     for (int i = 0; i < length; ++i) std::cout << ch;
@@ -21,8 +22,6 @@ void PrintField(const std::string& label, const std::string& value, int totalWid
 }
 
 void PrintStudent(Student MyStudent) {
-
-
     const int width = 38;
     PrintLine('-', width);
     //std::string str = std::format("{:.2f}",MyStudent.getGPA());
@@ -33,9 +32,6 @@ void PrintStudent(Student MyStudent) {
     PrintField("Student age", std::to_string(MyStudent.getAge()), width);
 
     PrintLine('-', width);
-
-
-
 }
 
 
@@ -167,6 +163,7 @@ void Exit(DoubleyLinkedList *myList) {
 int main() {
     bool running = true;
     DoubleyLinkedList *MyList = new DoubleyLinkedList();
+    //Student* stu = new Student("Connor", "Monaghan", "M1w3", 9,9,9);
     while (running){
         std::cout << "Which function would you like to test?" << std::endl;
         std::cout << "1: Add Item" << std::endl;
@@ -177,6 +174,7 @@ int main() {
         std::cout << "6: See Next" << std::endl;
         std::cout << "7: See At" << std::endl;
         std::cout << "8: Exit" << std::endl;
+        //std::cout << "9: PrintStudent" << std::endl;
 
     int option;
     std::cin >> option;
@@ -194,6 +192,7 @@ int main() {
                 running = false;
                 break;
             }
+        //case 9: stu -> display(); break;
         default: {
                 std::cout << "Invalid option" << std::endl;
             }
