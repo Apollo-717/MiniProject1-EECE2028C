@@ -16,7 +16,9 @@ Student::Student(std::string First_Name, std::string Last_Name, std::string M_Nu
     gpa = Grade_Point_Average;
 }
 
-
+double Student::getGPA() {
+    return gpa;
+}
 std::string Student::getName() {
     return FirstName + " " + LastName;
 }
@@ -25,12 +27,12 @@ std::string Student::GetM_Number() {
     return M_Number;
 }
 
-double Student::getAge() {
+int Student::getAge() {
     std::time_t t = std::time(nullptr);
     std::tm now = *std::localtime(&t);
     int age = now.tm_year + 1900 - year;
     if (now.tm_mon + 1 < month || (now.tm_mon + 1 == month && now.tm_mday < day)) age--;
-    return age;
+    return int(age);
 }
 
 bool Student::operator<(const std::string M_num) const {

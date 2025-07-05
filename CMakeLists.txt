@@ -8,4 +8,5 @@ add_executable(MiniProject1_EECE2028C src/main.cpp
         include/DoubleyLinkedList.h
         src/Student.cpp
         include/Student.h
+        include/Node.h
 )

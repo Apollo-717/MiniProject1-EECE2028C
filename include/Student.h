@@ -20,7 +20,8 @@ public:
 
     std::string getName();
     std::string GetM_Number();
-    double getAge();
+    double getGPA();
+    int getAge();
     bool operator<(const std::string M_num) const;
     bool operator>(const std::string M_num) const;
     bool operator==(const std::string M_num) const;
