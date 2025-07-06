@@ -22,6 +22,7 @@ public:
     std::string GetM_Number();
     double getGPA();
     int getAge();
+    void display();
     bool operator<(const std::string M_num) const;
     bool operator>(const std::string M_num) const;
     bool operator==(const std::string M_num) const;

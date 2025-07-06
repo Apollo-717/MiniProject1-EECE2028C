@@ -1,8 +1,8 @@
 //
 // Created by Apollo on 6/10/25.
 //
-
 #include "../include/DoubleyLinkedList.h"
+#include "../include/Student.h"
 
 
 DoubleyLinkedList::DoubleyLinkedList() {
@@ -83,7 +83,7 @@ Student* DoubleyLinkedList::SeeNext() {
     if (size == 0) {
         throw std::out_of_range("List is empty. Cannot see next item");
     }
-    if (current_location->next == nullptr) {
+    if (current_location == nullptr) {
         return nullptr;
     }
     current_location = current_location->next;
@@ -103,7 +103,14 @@ Student* DoubleyLinkedList::SeeAt(const int index) {
 void DoubleyLinkedList::Reset() {
     current_location = head;
 }
+void DoubleyLinkedList::DisplayList() const{
+    Node* current = head;
+    while (current != nullptr) {
+        current->data -> display();
 
+        current = current->next;
+    }
+}
 DoubleyLinkedList::~DoubleyLinkedList() {
     Node* current = head;
     for (int i = 0; i < size; i++) {

@@ -5,6 +5,11 @@
 #include "../include/Student.h"
 #include <string>
 #include <ctime>
+#include <iostream>
+#include <format>
+
+void PrintField(const std::string& label, const std::string& value, int totalWidth);
+void PrintLine(char ch, int length);
 
 Student::Student(std::string First_Name, std::string Last_Name, std::string M_Num, int Birth_year, int Birth_month, int Birth_day, double Grade_Point_Average) {
     FirstName = First_Name;
@@ -15,7 +20,18 @@ Student::Student(std::string First_Name, std::string Last_Name, std::string M_Nu
     day = Birth_day;
     gpa = Grade_Point_Average;
 }
+void Student::display() {
+    const int width = 38;
+    PrintLine('-', width);
+    //std::string str = std::format("{:.2f}",MyStudent.getGPA());
 
+    PrintField("Student Name", this -> getName(), width);
+    PrintField("Student M-Number", this -> GetM_Number(), width);
+    PrintField("Student GPA",std::format("{:.2f}",this -> getGPA()), width);
+    PrintField("Student age", std::to_string(this -> getAge()), width);
+
+    PrintLine('-', width);
+}
 double Student::getGPA() {
     return gpa;
 }
@@ -44,4 +60,3 @@ bool Student::operator>(const std::string M_num) const {
 bool Student::operator==(const std::string M_num) const {
     return M_Number == M_num;
 }
-

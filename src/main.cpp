@@ -170,9 +170,11 @@ int main() {
     Student* A = new Student("A","A","M1",1,1,1);
     Student* B = new Student("B","B","M2",2,2,2);
     Student* C = new Student("C","C","M3",3,3,3);
+    Student* D = new Student("D","D","M4",4,4,4);
     MyList -> AddItem(A);
     MyList -> AddItem(B);
     MyList -> AddItem(C);
+    MyList -> AddItem(D);
     while (running){
         std::cout << "Which function would you like to test?" << std::endl;
         std::cout << "1: Add Item" << std::endl;
@@ -183,29 +185,32 @@ int main() {
         std::cout << "6: See Next" << std::endl;
         std::cout << "7: See At" << std::endl;
         std::cout << "8: Reset" << std::endl;
-        std::cout << "9: Exit" << std::endl;
+        std::cout << "9: Display List" << std::endl;
+        std::cout << "10: Exit" << std::endl;
 
     int option;
     std::cin >> option;
 
-    switch(option) {
-        case 1: AddItem(MyList); break;
-        case 2: GetItem(MyList); break;
-        case 3: IsInList(MyList); break;
-        case 4: IsEmpty(MyList); break;
-        case 5: Size(MyList); break;
-        case 6: SeeNext(MyList); break;
-        case 7: SeeAt(MyList); break;
-        case 8: Reset(MyList); break;
-        case 9: {
+        switch(option) {
+            case 1: AddItem(MyList); break;
+            case 2: GetItem(MyList); break;
+            case 3: IsInList(MyList); break;
+            case 4: IsEmpty(MyList); break;
+            case 5: Size(MyList); break;
+            case 6: SeeNext(MyList); break;
+            case 7: SeeAt(MyList); break;
+            case 8: Reset(MyList); break;
+            case 9: MyList -> DisplayList(); break;
+            case 10: {
                 Exit(MyList);
                 running = false;
                 break;
             }
-        default: {
+                //case 9: stu -> display(); break;
+            default: {
                 std::cout << "Invalid option" << std::endl;
             }
-    }}
+        }}
     return 0;
 }
 
