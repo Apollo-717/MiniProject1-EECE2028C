@@ -147,7 +147,7 @@ void SeeAt(DoubleyLinkedList *myList) {
 
 void Reset(DoubleyLinkedList *myList) {
     myList -> Reset();
-    std::cout << "current location reset to index 0" << std::endl;
+    std::cout << "Current location reset to index 0" << std::endl;
 }
 
 
