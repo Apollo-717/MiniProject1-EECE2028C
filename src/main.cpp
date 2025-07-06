@@ -173,7 +173,9 @@ int main() {
         std::cout << "5: Size" << std::endl;
         std::cout << "6: See Next" << std::endl;
         std::cout << "7: See At" << std::endl;
-        std::cout << "8: Exit" << std::endl;
+        std::cout << "8: Reset" << std::endl;
+        std::cout << "9: Display List" << std::endl;
+        std::cout << "10: Exit" << std::endl;
         //std::cout << "9: PrintStudent" << std::endl;
 
     int option;
@@ -187,7 +189,9 @@ int main() {
         case 5: Size(MyList); break;
         case 6: SeeNext(MyList); break;
         case 7: SeeAt(MyList); break;
-        case 8: {
+        case 8: Reset(MyList); break;
+        case 9: MyList -> DisplayList(); break;
+        case 10: {
                 Exit(MyList);
                 running = false;
                 break;

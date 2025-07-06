@@ -35,6 +35,9 @@ class DoubleyLinkedList {
     //method to find an item at a location in the list, and return the item without removing
     Student* SeeAt(int index);
 
+    //method to display all contents in the list and information about them
+    void DisplayList() const;
+
     //method to reset SeeNext to beginning
     void Reset();
 

@@ -3,6 +3,7 @@
 //
 
 #include "../include/DoubleyLinkedList.h"
+#include "../include/Student.h"
 
 
 DoubleyLinkedList::DoubleyLinkedList() {
@@ -103,12 +104,23 @@ Student* DoubleyLinkedList::SeeAt(const int index) {
 void DoubleyLinkedList::Reset() {
     current_location = head;
 }
+void DoubleyLinkedList::DisplayList() const{
+    Node* current = head;
+    while (current != nullptr) {
+        current->data -> display();
 
+        current = current->next;
+    }
+}
 DoubleyLinkedList::~DoubleyLinkedList() {
     Node* current = head;
     for (int i = 0; i < size; i++) {
         delete current->data;
-        current = current->next;
-        delete current->prev;
+        if (current->next != nullptr) {
+            current = current->next;
+            delete current->prev;
+        }
+
     }
+    delete current;
 }
