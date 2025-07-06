@@ -158,15 +158,6 @@ void Exit(DoubleyLinkedList *myList) {
 
 
 
-
-
-
-
-
-
-
-
-
 int main() {
     bool running = true;
     DoubleyLinkedList *MyList = new DoubleyLinkedList();
