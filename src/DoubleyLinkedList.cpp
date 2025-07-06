@@ -94,9 +94,11 @@ Student* DoubleyLinkedList::SeeAt(const int index) {
     if (index < 0 || index >= size) {
         throw std::out_of_range("index is out of range");
     }
-    for (int i=0; i <= index; i++) {
-        current_location = current_location->next;
+    Node* temp = head;
+    for (int i=0; i < index; i++) {
+        temp = temp->next;
     }
+    current_location = temp;
     return current_location->data;
 }
 
