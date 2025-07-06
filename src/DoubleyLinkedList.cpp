@@ -83,7 +83,7 @@ Student* DoubleyLinkedList::SeeNext() {
     if (size == 0) {
         throw std::out_of_range("List is empty. Cannot see next item");
     }
-    if (current_location == nullptr) {
+    if (current_location->next == nullptr) {
         return nullptr;
     }
     current_location = current_location->next;

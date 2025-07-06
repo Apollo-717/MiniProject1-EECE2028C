@@ -52,7 +52,7 @@ void AddItem(DoubleyLinkedList *myList) {
     std::cin >> FirstName;
     std::cout << "Please enter the students last name: ";
     std::cin >> LastName;
-    std::cout << "Please enter the students M-Number: ";
+    std::cout << "Please enter the students M-Number(Please include the 'M'): ";
     std::cin >> Mnumber;
     std::cout << "Please enter the students GPA (press Enter for 0): ";
 
@@ -167,14 +167,8 @@ void Exit(DoubleyLinkedList *myList) {
 int main() {
     bool running = true;
     DoubleyLinkedList *MyList = new DoubleyLinkedList();
-    Student* A = new Student("A","A","M1",1,1,1);
-    Student* B = new Student("B","B","M2",2,2,2);
-    Student* C = new Student("C","C","M3",3,3,3);
-    Student* D = new Student("D","D","M4",4,4,4);
+    Student* A = new Student("Benjamin","Clark","M13733318",2004,2,7);
     MyList -> AddItem(A);
-    MyList -> AddItem(B);
-    MyList -> AddItem(C);
-    MyList -> AddItem(D);
     while (running){
         std::cout << "Which function would you like to test?" << std::endl;
         std::cout << "1: Add Item" << std::endl;
