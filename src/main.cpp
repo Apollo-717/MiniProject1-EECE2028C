@@ -20,23 +20,23 @@ void PrintField(const std::string& label, const std::string& value, int totalWid
     std::cout << "|\n";
 }
 
-void PrintStudent(Student MyStudent) {
-
-
-    const int width = 38;
-    PrintLine('-', width);
-    //std::string str = std::format("{:.2f}",MyStudent.getGPA());
-
-    PrintField("Student Name", MyStudent.getName(), width);
-    PrintField("Student M-Number", MyStudent.GetM_Number(), width);
-    PrintField("Student GPA",std::format("{:.2f}",MyStudent.getGPA()), width);
-    PrintField("Student age", std::to_string(MyStudent.getAge()), width);
-
-    PrintLine('-', width);
-
-
-
-}
+// void PrintStudent(Student MyStudent) {
+//
+//
+//     const int width = 38;
+//     PrintLine('-', width);
+//     //std::string str = std::format("{:.2f}",MyStudent.getGPA());
+//
+//     PrintField("Student Name", MyStudent.getName(), width);
+//     PrintField("Student M-Number", MyStudent.GetM_Number(), width);
+//     PrintField("Student GPA",std::format("{:.2f}",MyStudent.getGPA()), width);
+//     PrintField("Student age", std::to_string(MyStudent.getAge()), width);
+//
+//     PrintLine('-', width);
+//
+//
+//
+// }
 
 
 void AddItem(DoubleyLinkedList *myList) {
@@ -82,13 +82,14 @@ void GetItem(DoubleyLinkedList *myList) {
         std::cout << "M Number not Found" << std::endl;
     }
     else {
-        PrintStudent(*result);
+        // PrintStudent(*result);
+        result -> display();
     }
 
 }
 
 void IsInList(DoubleyLinkedList *myList) {
-    std::cout << "Please enter the students Mnumber: " << std::endl;
+    std::cout << "Please enter the students Mnumber(Please include the 'M'): " << std::endl;
     std::string Mnumber;
     std::cin >> Mnumber;
     if (myList -> IsInList(Mnumber)) {
@@ -121,7 +122,8 @@ void SeeNext(DoubleyLinkedList *myList) {
             std::cout << "Reached end of list" << std::endl;
         }
         else {
-            PrintStudent(*result);
+            // PrintStudent(*result);
+            result -> display();
         }
     } catch (std::out_of_range& e) {
         std::cout << "List is empty cannot see next" << std::endl;
@@ -134,7 +136,8 @@ void SeeAt(DoubleyLinkedList *myList) {
         std::cout << "Please enter the index of the student: " << std::endl;
         std::cin >> index;
         Student* result = myList -> SeeAt(index);
-            PrintStudent(*result);
+            // PrintStudent(*result);
+        result -> display();
 
     } catch (std::out_of_range& e) {
         std::cout << "Index is out of range" << std::endl;
