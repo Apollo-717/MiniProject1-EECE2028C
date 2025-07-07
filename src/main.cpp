@@ -170,10 +170,7 @@ void Exit(DoubleyLinkedList *myList) {
 int main() {
     bool running = true;
     DoubleyLinkedList *MyList = new DoubleyLinkedList();
-    Student* A = new Student("Benjamin","Clark","M13733318",2004,2,7);
-    Student* B = new Student("Bob","Clark","M13733319",2004,2,7);
-    MyList -> AddItem(A);
-    MyList -> AddItem(B);
+
     while (running){
         std::cout << "Which function would you like to test?" << std::endl;
         std::cout << "1: Add Item" << std::endl;
