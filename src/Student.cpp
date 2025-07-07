@@ -27,6 +27,7 @@ void Student::display() {
 
     PrintField("Student Name", this -> getName(), width);
     PrintField("Student M-Number", this -> GetM_Number(), width);
+    if (this -> getGPA() != 0)
     PrintField("Student GPA",std::format("{:.2f}",this -> getGPA()), width);
     PrintField("Student age(years)", std::to_string(this -> getAge()), width);
 
