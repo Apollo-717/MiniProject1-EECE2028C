@@ -1,9 +1,0 @@
-PASS: sorting, empty/single lists, SeeNext, SeeAt and Reset
-PASS: removal, independent copies, assignment and self-assignment
-PASS: Reverse, extremes, DisplayAll and cursor preservation
-PASS: save/load, empty file, missing file, corrupt/duplicate records
-PASS: names, M Numbers, GPA, birthdays, duplicates and serialization
-PASS: generic items and object lifetime accounting
-All tests passed.
-
-PASS: menu save/exit/restart/reload, duplicate, invalid GPA, missing file, bad input and EOF
