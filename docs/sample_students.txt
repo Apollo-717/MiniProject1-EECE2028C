@@ -1,0 +1,3 @@
+"Grace" "Hopper" M00000003 1906 12 9 4
+"Ada" "Lovelace" M00000001 1815 12 10 0
+"Alan" "Turing" M00000002 1912 6 23 3.75
