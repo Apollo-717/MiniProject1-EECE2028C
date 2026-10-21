@@ -1,61 +1,46 @@
-//
-// Created by Apollo on 6/10/25.
-//
-
 #ifndef DOUBLEYLINKEDLIST_H
 #define DOUBLEYLINKEDLIST_H
-#include "Student.h"
 #include "Node.h"
-#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <stdexcept>
+#include <memory>
+#include <utility>
 
-
+template <typename T>
 class DoubleyLinkedList {
 public:
-    //constructor
-    DoubleyLinkedList();
+    DoubleyLinkedList() = default;
+    DoubleyLinkedList(const DoubleyLinkedList& other);
+    DoubleyLinkedList& operator=(const DoubleyLinkedList& other);
+    ~DoubleyLinkedList() { RemoveAll(); }
 
-    //Method to add an item
-    void AddItem(Student* student);
-
-    //Method to get an item and remove it from the list
-    Student* GetItem(const std::string& MNumber);
-
-    //Method to check if item is in list
-    [[nodiscard]] bool IsInList(const std::string& MNumber) const;
-
-    //Method to check if list is empty
-    [[nodiscard]] bool IsEmpty() const;
-
-    //method to get size
-    [[nodiscard]] int Size() const;
-
-    //method to track and see next item in list
-    Student* SeeNext();
-
-    //method to find an item at a location in the list, and return the item without removing
-    Student* SeeAt(int index);
-
-    //method to display all contents in the list and information about them
+    // The list owns items after adding them.
+    void AddItem(T* item);
+    T* GetItem(const T* item);
+    [[nodiscard]] bool IsInList(const T* item) const;
+    [[nodiscard]] bool IsEmpty() const { return size == 0; }
+    [[nodiscard]] int Size() const { return size; }
+    T* SeeNext();
+    T* SeeAt(int index);
+    void Reset() { current_location = head; }
     void DisplayList() const;
-
-    //method to reset SeeNext to beginning
-    void Reset();
-
-    //Destructor
-    ~DoubleyLinkedList();
-
-
+    void DisplayAll() const { DisplayList(); }
+    void RemoveAll();
+    T* GetLargest() const;
+    T* GetSmallest() const;
+    void Reverse();
+    bool SaveToFile(const std::string& filename) const;
+    bool LoadFromFile(const std::string& filename);
 
 private:
-    int size;
-    Node* current_location;
-    Node* head;
-    Node* tail;
-
-
-
+    int size = 0;
+    Node<T>* current_location = nullptr;
+    Node<T>* head = nullptr;
+    Node<T>* tail = nullptr;
+    bool reversed = false;
+    void Swap(DoubleyLinkedList& other);
 };
 
-
-
-#endif //DOUBLEYLINKEDLIST_H
+#include "DoubleyLinkedList.tpp"
+#endif
